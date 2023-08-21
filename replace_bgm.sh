@@ -6,6 +6,7 @@ echo $Dir
 mkdir -p $Dir
 cd $Dir
 rm -f a.mp4
+rm -f a.jpg
 video_name=`ls -t *.mp4  |head -n1|awk '{print $0}'`
 
 echo $video_name
@@ -23,4 +24,4 @@ ffmpeg -y -i "$video_name" -i /opt/bgm/DeadEyes.mp3 -c:v copy -c:a aac -strict e
 
 cover_name=${video_name/%.mp4/.mp4.webp}
 
-ffmpeg -y -i "$cover_name" a.jpg
+ffmpeg -y -i "$cover_name" ./a.jpg
