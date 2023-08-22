@@ -22,6 +22,6 @@ ffmpeg -y -i "$video_name" -i /opt/bgm/DeadEyes.mp3 -c:v copy -c:a aac -strict e
 
 \cp "$info_json_name" ./a.info.json
 
-cover_name=${video_name/%.mp4/.mp4.webp}
+#cover_name=${video_name/%.mp4/.mp4.webp}
 
-ffmpeg -y -i "$cover_name" ./a.jpg
+#ffmpeg -y -i "$cover_name" ./a.jpg
