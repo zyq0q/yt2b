@@ -32,7 +32,7 @@
 6. 在user_up.py中设置你的b站token.使用login_by_access_token_file登录
    
    ```
-  uploader.login_by_access_token_file("/YOURFILEPATH/bililogin.json")
+   uploader.login_by_access_token_file("/YOURFILEPATH/bililogin.json")
    ```
 
 7. 将auto_mv_video.sh设置为定时任务即可每天自动搬运。例如基于linux的系统(ubuntu, macOS等)可设置crontab任务.
