@@ -10,8 +10,6 @@ rm -f a.jpg
 video_name=`ls -t *.mp4  |head -n1|awk '{print $0}'`
 
 echo $video_name
-info_json_name=${video_name/%.mp4/.mp4.info.json}
-echo $info_json_name
 
 #ffmpeg -y -i "$video_name" -i /opt/bgm/DeadEyes.mp3 -c:v copy -c:a aac -strict experimental -map 0:v:0 -map 1:a:0 "a.mp4"
 
@@ -19,9 +17,23 @@ echo $info_json_name
 
 ffmpeg -y -i "$video_name" -i /opt/bgm/DeadEyes.mp3 -c:v copy -c:a aac -strict experimental -map 0:v:0 -map 1:a:0 -shortest "a.mp4"
 
+info_json_name=${video_name/%.mp4/.info.json}
+if [ -f "$info_json_name" ];then
+    \cp "$info_json_name" ./a.info.json
+fi
 
-\cp "$info_json_name" ./a.info.json
+if [ ! -f "$info_json_name" ];then
+     info_json_name=${video_name/%.mp4/.mp4.info.json}
+    \cp "$info_json_name" ./a.info.json
+fi
 
-#cover_name=${video_name/%.mp4/.mp4.webp}
 
-#ffmpeg -y -i "$cover_name" ./a.jpg
+cover_name=${video_name/%.mp4/.jpg}
+if [ -f "$cover_name" ];then
+    \cp "$cover_name" ./a.jpg
+fi
+
+if [ ! -f "$cover_name" ];then
+    cover_name=${video_name/%.mp4/.mp4.jpg}
+    \cp "$cover_name" ./a.jpg
+fi

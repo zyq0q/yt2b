@@ -45,7 +45,7 @@ def fileadd_begin_end(video_path, v_name, dir):
 # upload the video
 def upload_f(uploader, video_path=None, v_title=None, v_desc=None, v_cover=None,
              v_tag=None, v_url=None):
-            
+
     for i in range(len(v_tag)):
         if(len(v_tag[i]) > 19):
             v_tag[i] = v_tag[i][:19]
@@ -68,7 +68,7 @@ def upload_f(uploader, video_path=None, v_title=None, v_desc=None, v_cover=None,
         desc=""
     ))
     '''
-    
+
     # upload
     # copyright =2 move, =1 selfmade
     # tid = category
@@ -76,7 +76,7 @@ def upload_f(uploader, video_path=None, v_title=None, v_desc=None, v_cover=None,
         parts=parts,
         copyright=1,
         title=v_title,
-        tid=158,
+        tid=207,
         tag=",".join(v_tag),
         desc=v_title,
         #转载必须填写来源
@@ -86,12 +86,12 @@ def upload_f(uploader, video_path=None, v_title=None, v_desc=None, v_cover=None,
     )
     # tmp = [video_path, v_title, v_desc, ",".join(v_tag), v_url]
     # print(tmp)
-    
+
 
 if __name__ == '__main__':
 
     uploader = BilibiliUploader()
-    
+
     # login
     #user_id = ''
     #user_passwd = ''
@@ -125,30 +125,33 @@ if __name__ == '__main__':
         # print(v_type)
         if(v_type != '.mp4'):
             continue
-        meta_file = v_name + '.info.json'
+        if(os.path.exists(dir + '/' + v_name + '.info.json')):
+            meta_file = v_name + '.info.json'
+        else:
+            meta_file = v_name + '.mp4.info.json'
         with open(dir+'/'+meta_file,'r',encoding='utf8')as js:
             meta_info = json.load(js)
             v_id = meta_info['id']
-            #v_title = meta_info['title']
-            v_title='清纯可爱小姐姐穿搭系列'+date1
+            v_title = meta_info['title']
             v_url = meta_info['uploader_url']
             #v_tag = meta_info['tags'][:3]
-            #there is no tag from yt
-            v_tag=['时尚穿搭','小姐姐','女神','美女','可爱','性感','模特','清纯','女友']
-            #v_desc = v_title
-            v_desc = '清纯可爱小姐姐喏，累了就进来歇会吧'
+            v_tag=['财经','经济','股市','商业','汇率','投资','资产','知识','A股','美股']
+            v_desc = v_title
             video_path = dir + '/'+v
-            v_cover = dir + '/' + v_name + '.jpg'
-            
-        # fileAppend(video_path)    
+            if os.path.exists(dir + '/' + v_name + '.jpg'):
+                v_cover = dir + '/' + v_name + '.jpg'
+            else:
+                v_cover = dir + '/' + v_name + '.mp4.jpg'
+
+        # fileAppend(video_path)
         if(v_id in record_id_list):
             continue
         record_id_list.append(v_id)
         record_title_list.append(v_title)
         record_js.append({'id':v_id, 'title':v_title, 'url':v_url,
-                        'time':datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
+                          'time':datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
         print('uploading ' + v)
-        
+
         fileAppend(video_path)
         # video_path, v_name, v_cover = fileadd_begin_end(video_path, v_name, dir)
         upload_f(uploader=uploader, video_path=video_path, v_title=v_title,
@@ -160,16 +163,3 @@ if __name__ == '__main__':
         time.sleep(30)
 
     # print(record_js)
-
-    
-    
-    
-
-
-        
-
-
-
-
-
-

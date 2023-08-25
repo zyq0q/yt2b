@@ -1,4 +1,9 @@
 #!/bin/bash
+#run cmd : source common.sh , then run test
+
+function test(){
+  echo "test"
+}
 
 function sleep10(){
   sleep 10
