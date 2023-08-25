@@ -12,4 +12,4 @@ bash dl_video.sh
 python3 user_up.py
 sleep10
 
-nohup bash $0 &
+nohup bash "$0" &
