@@ -97,7 +97,7 @@ if __name__ == '__main__':
     #user_passwd = ''
     #uploader.login(user_id, user_passwd)
     # uploader = None
-    uploader.login_by_access_token_file("/opt/Move_Video_to_Bilibili-main/cookies.json")
+    uploader.login_by_access_token_file("/opt/cookies/cookies.json")
 
     record_file = 'up_history.json'
     record_id_list = []
