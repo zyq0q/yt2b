@@ -6,7 +6,7 @@ function test(){
 }
 
 function sleep10(){
-  sleep 10
+  sleep 60
 }
 
 function shutdown(){
