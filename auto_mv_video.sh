@@ -1,5 +1,5 @@
 #!/bin/bash
-sourch /opt/common.sh
+sourch common.sh
 logdate=`date "+%Y-%m-%d %H:%M:%S"`
 Date=`date '+%Y%m%d'`
 Dir="video_file/file_"${Date}
