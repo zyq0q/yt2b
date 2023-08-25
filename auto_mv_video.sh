@@ -1,9 +1,8 @@
 #!/bin/bash
-sourch common.sh
-logdate=`date "+%Y-%m-%d %H:%M:%S"`
-Date=`date '+%Y%m%d'`
+source common.sh
+Date=$(date '+%Y%m%d')
 Dir="video_file/file_"${Date}
-mkdir -p $Dir
+mkdir -p "$Dir"
 
 
 bash dl_video.sh
