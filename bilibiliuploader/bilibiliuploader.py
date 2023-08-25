@@ -22,7 +22,7 @@ class BilibiliUploader():
 
     def login_by_access_token_file(self, file_name):
         with open(file_name, "r") as f:
-            login_data = json.loads(f.read())
+            login_data = json.loads(f.read())['token_info']
         self.access_token = login_data["access_token"]
         self.refresh_token = login_data["refresh_token"]
         self.sid, self.mid, _ = core.login_by_access_token(self.access_token)
