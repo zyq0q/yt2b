@@ -21,14 +21,22 @@ https://www.youtube.com/@CatchyTrend/videos
 https://www.youtube.com/@poke2-gb9zb/shorts
 https://www.youtube.com/@civilianwatchchina3709/videos
 https://www.youtube.com/@rearstreetview/videos
+https://www.youtube.com/@randomwalkchina/videos
+https://www.youtube.com/@jiejiao/videos
 
 
 -------------------------------
 tid=138,
-v_tag=['韩国','日本','小姐姐','LOOKBOOK','美女','可爱','性感','日常记录','穿搭','时尚','按摩','养生']
+v_tag=['韩国','日本','小姐姐','LOOKBOOK','美女','漫展','性感','日常记录','穿搭','COSPLAY','按摩','养生']
 v_title='日本小姐姐明雅时尚性感穿搭按摩正骨养生系列'+date1
 v_title='清纯可爱小姐姐穿搭系列'+date1
 v_title='奈子小姐姐'+ meta_info['title']
+v_title='越南旅游必备理发店按摩系列'+date
+
+
+https://www.youtube.com/@YudetamaChannel/videos
+https://www.youtube.com/@velvettube/videos
+
 
 --------------------------------------------------------
 tid=207
