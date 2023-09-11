@@ -9,13 +9,14 @@ from moviepy.editor import *
 import re
 
 
-def filter_emoji(desstr, restr=''):
-    # 过滤表情
-    try:
-        co = re.compile(u'[\U00010000-\U0010ffff]')
-    except re.error:
-        co = re.compile(u'[\uD800-\uDBFF][\uDC00-\uDFFF]')
-    return co.sub(restr, desstr)
+def remove_invisible_chars(s):
+    str = ''
+    for x in s:
+        if x != x.isprintable():
+            str += ''
+        else:
+            str += x
+    return str
 
 # change MD5 value
 def fileAppend(filename):
@@ -142,7 +143,7 @@ if __name__ == '__main__':
         with open(dir+'/'+meta_file,'r',encoding='utf8')as js:
             meta_info = json.load(js)
             v_id = meta_info['id']
-            v_title = filter_emoji(meta_info['title'])
+            v_title = remove_invisible_chars(meta_info['title'])
             v_url = meta_info['uploader_url']
             #v_tag = meta_info['tags'][:3]
             v_tag=['财经','经济','股市','商业','汇率','投资','资产','知识','A股','美股']
