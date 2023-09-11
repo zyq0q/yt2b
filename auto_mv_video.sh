@@ -9,6 +9,7 @@ bash dl_video.sh
 
 #bash replace_bgm.sh
 
+sleep 2
 python3 user_up.py
 sleep10
 
