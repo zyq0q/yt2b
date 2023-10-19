@@ -11,7 +11,7 @@ from zhconv import convert
 from translate import Translator
 
 def remove_invisible_chars(s):
-    return re.sub(u"([^\u4e00-\u9fa5\u0030-\u0039\u0041-\u005a\u0061-\u007a])","",s)
+    return re.sub(u"([^\u4e00-\u9fa5\u0030-\u0039\u0041-\u005a\u0061-\u007a])"," ",s)
 
 # change MD5 value
 def fileAppend(filename):
