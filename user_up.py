@@ -7,8 +7,7 @@ import json
 import time
 from moviepy.editor import *
 import re
-from libretranslatepy import LibreTranslateAPI
-lt = LibreTranslateAPI("http://47.240.122.148:5000")
+from deep_translator import GoogleTranslator
 
 def remove_invisible_chars(s):
     return re.sub(u"([^\u4e00-\u9fa5\u0030-\u0039\u0041-\u005a\u0061-\u007a])","",s)
@@ -138,7 +137,7 @@ if __name__ == '__main__':
         with open(dir+'/'+meta_file,'r',encoding='utf8')as js:
             meta_info = json.load(js)
             v_id = meta_info['id']
-            v_title =lt.translate(remove_invisible_chars(meta_info['title']), "auto", "zh")
+            v_title =GoogleTranslator(source='auto', target='zh-CN').translate(remove_invisible_chars(meta_info['title']))
             v_url = meta_info['uploader_url']
             #v_tag = meta_info['tags'][:3]
             v_tag=['财经','经济','股市','商业','汇率','投资','资产','知识','A股','美股']

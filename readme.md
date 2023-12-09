@@ -12,6 +12,9 @@
 
    ```
    python setup.py
+   
+   pip3 install -U deep-translator
+
    ```
 
 4. 在dl_video.sh中设置想要转载的频道，和限制天数(例如设置忽略3天之前更新的视频)
